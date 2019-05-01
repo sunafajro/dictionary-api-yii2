@@ -1,0 +1,5 @@
+/config/credentials.json
+/config/token.json
+/data
+/runtime
+/vendor

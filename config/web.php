@@ -26,7 +26,7 @@ return [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
             'rules' => [
-                '/api/term/<tag>' => '/term/api-<tag>',
+                '/api/terms' => '/term/api-index',
             ],
         ],
     ],

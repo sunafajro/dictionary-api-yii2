@@ -8,6 +8,6 @@ class SiteController extends Controller
 {
     public function actionIndex()
     {
-        return 'It\'s simple dictionary-api.';
+        return $this->render('index');
     }
 }

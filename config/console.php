@@ -1,8 +1,9 @@
 <?php
 
 $params = require(__DIR__ . '/params-console.php');
+$aliases = require(__DIR__ . '/aliases.php');
 
-return [
+$config = [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -17,9 +18,12 @@ return [
             ],
         ],
     ],
-    'aliases' => [
-        '@config' => dirname(__DIR__) . '/config',
-        '@data'   => dirname(__DIR__) . '/data',
-    ],
+    'aliases' => $aliases,
     'params' => $params,
 ];
+
+if (file_exists(__DIR__ . '/local/console.php')) {
+    $config = array_merge($config, require(__DIR__ . '/local/console.php'));
+}
+
+return $config;

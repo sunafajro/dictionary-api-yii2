@@ -1,8 +1,9 @@
 <?php
 
-$params = require(__DIR__ . '/params-web.php');
+$params  = require(__DIR__ . '/params-web.php');
+$aliases = require(__DIR__ . '/aliases.php');
 
-return [
+$config = [
     'id' => 'app-web',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -17,6 +18,7 @@ return [
             ],
         ],
         'request' => [
+            'cookieValidationKey' => '',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
@@ -30,8 +32,12 @@ return [
             ],
         ],
     ],
-    'aliases' => [
-        '@data' => dirname(__DIR__) . '/data',
-    ],
+    'aliases' => $aliases,
     'params' => $params,
 ];
+
+if (file_exists(__DIR__ . '/local/web.php')) {
+    $config = array_merge($config, require(__DIR__ . '/local/web.php'));
+}
+
+return $config;

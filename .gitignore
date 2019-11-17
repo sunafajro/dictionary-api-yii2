@@ -1,5 +1,4 @@
-/config/credentials.json
-/config/token.json
+/config/local
 /data/terms.json
 /runtime
 /vendor

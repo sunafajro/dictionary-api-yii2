@@ -8,7 +8,23 @@ use yii\web\Response;
 
 class TermController extends Controller
 {
-    public function actionApiIndex(string $limit = '', string $offset = '', string $search = '')
+    public function actionApiIndex(string $limit = '', string $offset = '')
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+       
+        $limit = $limit !== '' ? (int)$limit : (isset(Yii::$app->params['limit']) && Yii::$app->params['limit'] !== '' ? (int)Yii::$app->params['limit'] : NULL);
+        $offset = $offset !== '' ? (int)$offset : (isset(Yii::$app->params['offset']) && Yii::$app->params['offset'] !== '' ? (int)Yii::$app->params['offset'] : 0);
+
+        $string = file_get_contents(Yii::getAlias('@data/terms.json'));
+        $terms = json_decode($string, true);
+
+        return [
+            'terms' => array_slice($terms, $offset, $limit),
+            'total' => count($terms),
+        ];
+    }
+
+    public function actionApiSearch(string $term, string $limit = '', string $offset = '')
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
        
@@ -19,9 +35,9 @@ class TermController extends Controller
         $terms = json_decode($string, true);
         
         $searchKey = Yii::$app->params['searchKey'] ?? NULL;
-        $filteredTerms = $search && $searchKey ? array_filter($terms, function($item) use ($search, $searchKey) {
+        $filteredTerms = $term && $searchKey ? array_filter($terms, function($item) use ($term, $searchKey) {
             $str = $item[$searchKey];
-            return mb_strpos($str, $search) !== false;
+            return mb_strpos($str, $term) !== false;
         }) : $terms;
 
         return [

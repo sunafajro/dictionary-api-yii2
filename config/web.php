@@ -7,6 +7,7 @@ $config = [
     'id' => 'app-web',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru-RU',
     'controllerNamespace' => 'app\controllers',
     'components' => [
         'log' => [
@@ -28,9 +29,15 @@ $config = [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
             'rules' => [
-                '/api/terms'      => '/term/api-index',
-                '/api/books'      => '/book/api-index',
-                '/api/book/file'  => '/book/api-file',
+                '/api/book/<id:\d+>/file/<name:[\d\w\_\-]+>/<type:\w+>'  => '/book/api-file',
+                '/api/book/<id:\d+>'                                     => '/book/api-view',
+                '/api/books'                                             => '/book/api-index',
+                '/api/term/<term:[\w\-]+>/<limit:\d+>/<offset:\d+>'      => '/term/api-search',
+                '/api/term/<term:[\w\-]+>/<limit:\d+>'                   => '/term/api-search',
+                '/api/term/<term:[\w\-]+>'                               => '/term/api-search',
+                '/api/terms/<limit:\d+>/<offset:\d+>'                    => '/term/api-index',
+                '/api/terms/<limit:\d+>'                                 => '/term/api-index',
+                '/api/terms'                                             => '/term/api-index',
             ],
         ],
     ],

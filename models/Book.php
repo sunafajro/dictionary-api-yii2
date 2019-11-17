@@ -19,7 +19,7 @@ class Book extends Model {
 
     public static function getBookSchema(int $id) : array
     {
-        $books = getSchema();
+        $books = self::getSchema();
         return $books[$id];
     }
 }

@@ -28,7 +28,9 @@ $config = [
             'showScriptName' => false,
             'enablePrettyUrl' => true,
             'rules' => [
-                '/api/terms' => '/term/api-index',
+                '/api/terms'      => '/term/api-index',
+                '/api/books'      => '/book/api-index',
+                '/api/book/file'  => '/book/api-file',
             ],
         ],
     ],

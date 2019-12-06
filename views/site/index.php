@@ -12,14 +12,14 @@ $this->title = Yii::$app->params['appTitle'];
     </p>
     <ul>
         <li><b>GET /api/books</b> - схема всех учебных пособий.</li>
-        <li><b>GET /api/book/:id</b> - схема указанного учебного пособия.  id - номер пособия.</li>
-        <li><b>GET /api/book/:id/file/:name/:type</b> - файл указанного учебного пособия. id - номер пособия, name - имя файла, type - тип файла</li>
+        <li><b>GET /api/books/:id</b> - схема указанного учебного пособия.  id - номер пособия.</li>
+        <li><b>GET /api/books/:id/file/:name/:type</b> - файл указанного учебного пособия. id - номер пособия, name - имя файла, type - тип файла</li>
     </ul>
     <p>
         <b>Словарь:</b>
     </p>
     <ul>
         <li><b>GET /api/terms/:limit/:offset</b> - список терминов словаря</li>
-        <li><b>GET /api/term/:term/:limit/:offset</b> - поиск по терминам словаря</li>
+        <li><b>GET /api/terms/:term/:limit/:offset</b> - поиск по терминам словаря</li>
     </ul>
 </div>

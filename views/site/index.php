@@ -20,6 +20,6 @@ $this->title = Yii::$app->params['appTitle'];
     </p>
     <ul>
         <li><b>GET /api/terms/:limit/:offset</b> - список терминов словаря</li>
-        <li><b>GET /api/terms/:term/:limit/:offset</b> - поиск по терминам словаря</li>
+        <li><b>GET /api/term/:term/:limit/:offset</b> - поиск по терминам словаря</li>
     </ul>
 </div>

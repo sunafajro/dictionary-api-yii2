@@ -10,16 +10,25 @@ use yii\web\Response;
 
 class BookController extends Controller
 {
-    public function actionApiIndex()
+    public function actionApiBooks()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
+
         return Book::getBooksSchema();
     }
 
-    public function actionApiView($id)
+    public function actionApiBook($id)
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
+
         return Book::getBookSchema($id);
+    }
+
+    public function actionApiChapter($id, $chapter)
+    {
+        Yii::$app->response->format = Response::FORMAT_JSON;
+
+        return Book::getBookChapterSchema($id, $chapter);
     }
 
     /**

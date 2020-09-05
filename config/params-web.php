@@ -3,7 +3,8 @@
 return [
     'adminEmail' => 'admin@example.com',
     'appTitle'   => '',
-    'searchKey'  => '',
+    'dictLang'   => '',
+    'searchKey'  => [],
     'limit'      => 0,
     'offset'     => 0,
 ];

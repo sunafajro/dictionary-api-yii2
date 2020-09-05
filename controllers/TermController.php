@@ -34,7 +34,7 @@ class TermController extends Controller
         $str = file_get_contents(Yii::getAlias('@data/terms-kalaha.json'));
         $terms = json_decode($str, true);
 
-        $searchKey = Yii::$app->params['searchKey'] ?? NULL;
+        $searchKey = Yii::$app->params['searchKey']['kalaha'] ?? NULL;
         $filteredTerms = $term && $searchKey ? array_filter($terms, function($item) use ($term, $searchKey) {
             $str = $item[$searchKey];
             return mb_strpos($str, $term) !== false;

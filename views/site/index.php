@@ -17,10 +17,16 @@ $this->title = Yii::$app->params['appTitle'];
         <li><b>GET /api/books/:id/file/:name/:type</b> - файл указанного учебного пособия. id - номер пособия, name - имя файла, type - тип файла</li>
     </ul>
     <p>
-        <b>Словарь:</b>
+        <b>Словарь пособий "Кала-ха":</b>
     </p>
     <ul>
         <li><b>GET /api/terms/:limit/:offset</b> - список терминов словаря</li>
         <li><b>GET /api/term/:term/:limit/:offset</b> - поиск по терминам словаря</li>
+    </ul>
+    <p>
+        <b>Словарь "500 основных чувашских корней"</b>
+    <ul>
+        <li><b>GET /api/dict/cv500/terms/:lang/:limit/:offset</b> - список терминов словаря (Параметры по умолчанию: lang = 'ru', limit = 20, offset = 0)</li>
+        <li><b>GET /api/dict/cv500/term/:term/:limit/:offset</b> - поиск по терминам словаря</li>
     </ul>
 </div>

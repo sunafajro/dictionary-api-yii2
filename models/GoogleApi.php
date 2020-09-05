@@ -14,7 +14,7 @@ class GoogleApi extends Model {
         $service = $this->getService($client);
         $response = $service->spreadsheets_values->get($spreadsheetId, $range);
         return $response->getValues();
-    } 
+    }
     private function getService($client)
     {
         return new Google_Service_Sheets($client);

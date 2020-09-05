@@ -1,7 +1,8 @@
 /config/local
 /data/books.json
-/data/terms.json
+/data/terms*.json
 /data/content
 /runtime
 /vendor
+/web/.well-known
 composer.phar

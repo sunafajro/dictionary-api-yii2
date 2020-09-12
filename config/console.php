@@ -1,7 +1,18 @@
 <?php
 
-$params = require(__DIR__ . '/params-console.php');
+$localPath = __DIR__ . '/local';
+
+$params  = require(__DIR__ . '/params-console.php');
+if (file_exists("{$localPath}/params-console.php")) {
+    $localParams = require("{$localPath}/params-console.php");
+    $params = array_merge($params, $localParams);
+}
+
 $aliases = require(__DIR__ . '/aliases.php');
+if (file_exists("{$localPath}/aliases.php")) {
+    $localAliases = require("{$localPath}/aliases.php");
+    $aliases = array_merge($aliases, $localAliases);
+}
 
 $config = [
     'id' => 'app-console',
@@ -21,9 +32,5 @@ $config = [
     'aliases' => $aliases,
     'params' => $params,
 ];
-
-if (file_exists(__DIR__ . '/local/console.php')) {
-    $config = array_merge($config, require(__DIR__ . '/local/console.php'));
-}
 
 return $config;

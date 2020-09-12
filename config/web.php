@@ -1,9 +1,27 @@
 <?php
 
-$params  = require(__DIR__ . '/params-web.php');
-$aliases = require(__DIR__ . '/aliases.php');
+$localPath = __DIR__ . '/local';
 
-$config = [
+$params  = require(__DIR__ . '/params-web.php');
+
+if (file_exists("{$localPath}/params-web.php")) {
+    $localParams = require("{$localPath}/params-web.php");
+    $params = array_merge($params, $localParams);
+}
+
+$aliases = require(__DIR__ . '/aliases.php');
+if (file_exists("{$localPath}/aliases.php")) {
+    $localAliases = require("{$localPath}/aliases.php");
+    $aliases = array_merge($aliases, $localAliases);
+}
+
+$options = require(__DIR__ . '/options.php');
+if (file_exists("{$localPath}/options.php")) {
+    $localOptions = require("{$localPath}/options.php");
+    $options = array_merge($options, $localOptions);
+}
+
+return [
     'id' => 'app-web',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -19,7 +37,8 @@ $config = [
             ],
         ],
         'request' => [
-            'cookieValidationKey' => '',
+            'enableCsrfValidation' => $options['enableCsrfValidation'],
+            'cookieValidationKey'  => $options['cookieValidationKey'],
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ],
@@ -39,23 +58,12 @@ $config = [
                 '/api/terms/<limit:\d+>/<offset:\d+>'                               => '/term/api-index',
                 '/api/terms/<limit:\d+>'                                            => '/term/api-index',
                 '/api/terms'                                                        => '/term/api-index',
-                '/api/dict/<dict:\w+>/term/<term:[\w\-]+>/<lang:\w+>/<limit:\d+>/<offset:\d+>' => '/dictionary/api-search',
-                '/api/dict/<dict:\w+>/term/<term:[\w\-]+>/<lang:\w+>/<limit:\d+>'   => '/dictionary/api-search',
-                '/api/dict/<dict:\w+>/term/<term:[\w\-]+>/<lang:\w+>'               => '/dictionary/api-search',
-                '/api/dict/<dict:\w+>/term/<term:[\w\-]+>'                          => '/dictionary/api-search',
-                '/api/dict/<dict:\w+>/terms/<lang:\w+>/<limit:\d+>/<offset:\d+>'    => '/dictionary/api-index',
-                '/api/dict/<dict:\w+>/terms/<lang:\w+>/<limit:\d+>'                 => '/dictionary/api-index',
-                '/api/dict/<dict:\w+>/terms/<lang:\w+>'                             => '/dictionary/api-index',
-                '/api/dict/<dict:\w+>/terms'                                        => '/dictionary/api-index',
+                '/api/dictionaries'                                                 => '/dictionary/list',
+                '/api/dictionaries/<dictionary:\w+>'                                => '/dictionary/list-terms',
+                '/api/dictionaries/<dictionary:\w+>/<term:[\w\-]+>'                 => '/dictionary/search-terms',
             ],
         ],
     ],
     'aliases' => $aliases,
     'params' => $params,
 ];
-
-if (file_exists(__DIR__ . '/local/web.php')) {
-    $config = array_merge($config, require(__DIR__ . '/local/web.php'));
-}
-
-return $config;

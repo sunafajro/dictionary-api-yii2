@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'adminEmail'         => 'admin@example.com',
-    'spreadsheetRange'   => '',
-    'spreadsheetId'      => '',
-    'spreadsheetColumns' => [],
+    'adminEmail'   => 'admin@example.com',
+    'spreadSheets' => [],
 ];

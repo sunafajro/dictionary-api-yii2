@@ -1,6 +1,6 @@
+/.idea
 /config/local
-/data/books.json
-/data/terms*.json
+/data/*.json
 /data/content
 /runtime
 /vendor

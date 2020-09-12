@@ -25,8 +25,24 @@ $this->title = Yii::$app->params['appTitle'];
     </ul>
     <p>
         <b>Словарь "500 основных чувашских корней"</b>
-    <ul>
-        <li><b>GET /api/dict/cv500/terms/:lang/:limit/:offset</b> - список терминов словаря (Параметры по умолчанию: lang = 'ru', limit = 20, offset = 0)</li>
-        <li><b>GET /api/dict/cv500/term/:term/:limit/:offset</b> - поиск по терминам словаря</li>
-    </ul>
+        <ul>
+            <li>
+                <b>GET /api/dictionary/cv500</b> - список терминов словаря.<br />
+                <i>Параметры:</i>
+                <ul>
+                    <li><b>dictionary_language:</b> тип string, значение по умолчанию 'ru'</li>
+                    <li><b>limit:</b> тип integer, значение по умолчанию 20</li>
+                    <li><b>offset:</b> тип integer, значение по умолчанию 0</li>
+                </ul>
+            <li>
+                 <b>GET /api/dictionary/cv500/:term</b> - поиск по терминам словаря<br />
+                <i>Параметры:</i>
+                <ul>
+                    <li><b>dictionary_language:</b> тип string, значение по умолчанию 'ru'</li>
+                    <li><b>search_language:</b> тип string, значение по умолчанию 'ru'</li>
+                    <li><b>limit:</b> тип integer, значение по умолчанию 20</li>
+                    <li><b>offset:</b> тип integer, значение по умолчанию 0</li>
+                </ul>
+            </li>
+        </ul>
 </div>

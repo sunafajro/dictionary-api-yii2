@@ -27,7 +27,7 @@ $this->title = Yii::$app->params['appTitle'];
         <b>Словарь "500 основных чувашских корней"</b>
         <ul>
             <li>
-                <b>GET /api/dictionary/cv500</b> - список терминов словаря.<br />
+                <b>GET /api/dictionaries/cv500</b> - список терминов словаря.<br />
                 <i>Параметры:</i>
                 <ul>
                     <li><b>dictionary_language:</b> тип string, значение по умолчанию 'ru'</li>
@@ -35,7 +35,7 @@ $this->title = Yii::$app->params['appTitle'];
                     <li><b>offset:</b> тип integer, значение по умолчанию 0</li>
                 </ul>
             <li>
-                 <b>GET /api/dictionary/cv500/:term</b> - поиск по терминам словаря<br />
+                 <b>GET /api/dictionaries/cv500/:term</b> - поиск по терминам словаря<br />
                 <i>Параметры:</i>
                 <ul>
                     <li><b>dictionary_language:</b> тип string, значение по умолчанию 'ru'</li>

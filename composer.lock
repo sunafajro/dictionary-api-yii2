@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2941265c56d133548d8e4f49870bb1b4",
+    "content-hash": "6caee549a4322ced3de7a46475d6f372",
     "packages": [
         {
             "name": "bower-asset/inputmask",
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -32,7 +32,7 @@
             "version": "3.5.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jquery/jquery-dist.git",
+                "url": "git@github.com:jquery/jquery-dist.git",
                 "reference": "4c0e4becb8263bb5b3e6dadc448d8e7305ef8215"
             },
             "dist": {
@@ -243,16 +243,16 @@
         },
         {
             "name": "google/apiclient",
-            "version": "v2.7.1",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client.git",
-                "reference": "e748d1d5a51166754f13809d35f1fa162cbec530"
+                "reference": "9df720d72c59456b5466e3f66e1e78cfe422a5ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/e748d1d5a51166754f13809d35f1fa162cbec530",
-                "reference": "e748d1d5a51166754f13809d35f1fa162cbec530",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/9df720d72c59456b5466e3f66e1e78cfe422a5ba",
+                "reference": "9df720d72c59456b5466e3f66e1e78cfe422a5ba",
                 "shasum": ""
             },
             "require": {
@@ -301,20 +301,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-09-08T16:38:08+00:00"
+            "time": "2020-09-18T20:02:04+00:00"
         },
         {
             "name": "google/apiclient-services",
-            "version": "v0.145",
+            "version": "v0.146",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-api-php-client-services.git",
-                "reference": "96de5dabadb693f161a31a1a1e018882fa05816e"
+                "reference": "029e20e81508cee6dc652529514eeeb1cf56ce54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/96de5dabadb693f161a31a1a1e018882fa05816e",
-                "reference": "96de5dabadb693f161a31a1a1e018882fa05816e",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/029e20e81508cee6dc652529514eeeb1cf56ce54",
+                "reference": "029e20e81508cee6dc652529514eeeb1cf56ce54",
                 "shasum": ""
             },
             "require": {
@@ -338,20 +338,20 @@
             "keywords": [
                 "google"
             ],
-            "time": "2020-09-05T00:24:41+00:00"
+            "time": "2020-09-12T00:24:59+00:00"
         },
         {
             "name": "google/auth",
-            "version": "v1.12.0",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-auth-library-php.git",
-                "reference": "74cad289014f7ef747618480f6b59f6303357f34"
+                "reference": "173191f5defd1d9ae8bdfc28da31b63eb73dd34e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/74cad289014f7ef747618480f6b59f6303357f34",
-                "reference": "74cad289014f7ef747618480f6b59f6303357f34",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/173191f5defd1d9ae8bdfc28da31b63eb73dd34e",
+                "reference": "173191f5defd1d9ae8bdfc28da31b63eb73dd34e",
                 "shasum": ""
             },
             "require": {
@@ -390,7 +390,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2020-09-08T16:33:56+00:00"
+            "time": "2020-09-18T20:03:05+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1001,16 +1001,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.37",
+            "version": "2.0.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "e8094d1aa9e807fbea970bc1360ab836ffb1b738"
+                "reference": "fd01e747cc66a049ec105048f0ab8dfbdf60bf4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/e8094d1aa9e807fbea970bc1360ab836ffb1b738",
-                "reference": "e8094d1aa9e807fbea970bc1360ab836ffb1b738",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/fd01e747cc66a049ec105048f0ab8dfbdf60bf4b",
+                "reference": "fd01e747cc66a049ec105048f0ab8dfbdf60bf4b",
                 "shasum": ""
             },
             "require": {
@@ -1097,7 +1097,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2020-08-07T20:11:56+00:00"
+            "time": "2020-09-14T21:52:10+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1161,6 +1161,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*"
+    },
     "platform-dev": []
 }

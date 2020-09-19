@@ -12,15 +12,32 @@ class TermController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        $limit = $limit !== '' ? (int)$limit : (isset(Yii::$app->params['limit']) && Yii::$app->params['limit'] !== '' ? (int)Yii::$app->params['limit'] : NULL);
-        $offset = $offset !== '' ? (int)$offset : (isset(Yii::$app->params['offset']) && Yii::$app->params['offset'] !== '' ? (int)Yii::$app->params['offset'] : 0);
+        $dictionary_language = Yii::$app->params['dictionaryLanguage']['kalaha'] ?? null;
+
+        if (!$limit) {
+            $limit = Yii::$app->params['limit'] ?? null;
+        }
+
+        if (!$offset) {
+            $offset = Yii::$app->params['offset'] ?? null;
+        }
 
         $str = file_get_contents(Yii::getAlias('@data/terms-kalaha.json'));
         $terms = json_decode($str, true);
 
+        if (!is_array($terms)) {
+            $terms = [
+                $dictionary_language => [],
+            ];
+        }
+
+        if (!isset($terms[$dictionary_language])) {
+            $terms[$dictionary_language] = [];
+        }
+
         return [
-            'terms' => array_slice($terms, $offset, $limit),
-            'total' => count($terms),
+            'terms' => array_slice($terms[$dictionary_language], $offset, $limit),
+            'total' => count($terms[$dictionary_language]),
         ];
     }
 
@@ -28,14 +45,25 @@ class TermController extends Controller
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        $limit = $limit !== '' ? (int)$limit : (isset(Yii::$app->params['limit']) && Yii::$app->params['limit'] !== '' ? (int)Yii::$app->params['limit'] : NULL);
-        $offset = $offset !== '' ? (int)$offset : (isset(Yii::$app->params['offset']) && Yii::$app->params['offset'] !== '' ? (int)Yii::$app->params['offset'] : 0);
+        $dictionary_language = Yii::$app->params['dictionaryLanguage']['kalaha'] ?? null;
+
+        if (!$limit) {
+            $limit = Yii::$app->params['limit'] ?? null;
+        }
+
+        if (!$offset) {
+            $offset = Yii::$app->params['offset'] ?? null;
+        }
 
         $str = file_get_contents(Yii::getAlias('@data/terms-kalaha.json'));
         $terms = json_decode($str, true);
 
-        $searchKey = Yii::$app->params['searchKey']['kalaha'] ?? NULL;
-        $filteredTerms = $term && $searchKey ? array_filter($terms, function($item) use ($term, $searchKey) {
+        if (!isset($terms[$dictionary_language])) {
+            $terms[$dictionary_language] = [];
+        }
+
+        $searchKey = Yii::$app->params['searchColumn']['kalaha'] ?? NULL;
+        $filteredTerms = $term && $searchKey ? array_filter($terms[$dictionary_language], function($item) use ($term, $searchKey) {
             $str = $item[$searchKey];
             return mb_strpos($str, $term) !== false;
         }) : $terms;

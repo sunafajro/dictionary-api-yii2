@@ -92,11 +92,11 @@ class DictionaryController extends Controller
         }
 
         if (!$dictionary_language) {
-            $dictionary_language = Yii::$app->params['dictionaryLanguage'] ?? null;
+            $dictionary_language = Yii::$app->params['dictionaryLanguage'][$dictionary] ?? null;
         }
 
         if (!$search_language) {
-            $search_language = Yii::$app->params['searchLanguage'] ?? null;
+            $search_language = Yii::$app->params['searchLanguage'][$dictionary] ?? null;
         }
 
         if (!$limit) {
